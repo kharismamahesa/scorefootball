@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:scorefootball/pages/competition.dart';
 import 'package:scorefootball/pages/home.dart';
 import 'package:scorefootball/pages/profile.dart';
@@ -14,14 +15,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  // Daftar halaman yang akan ditampilkan saat item navigasi dipilih
   final List<Widget> _pages = [
     HomeScreen(),
     CompetitionScreen(),
     ProfileScreen(),
   ];
 
-  // Fungsi untuk memperbarui halaman yang dipilih
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -50,6 +49,15 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _selectedIndex,
         selectedItemColor: AppColor.primary,
         unselectedItemColor: Colors.grey,
+        showUnselectedLabels: true,
+        selectedLabelStyle: GoogleFonts.nunito(
+          fontWeight: FontWeight.bold,
+          fontSize: 14,
+        ),
+        unselectedLabelStyle: GoogleFonts.nunito(
+          fontSize: 12,
+        ),
+        iconSize: 30,
         onTap: _onItemTapped,
       ),
     );
